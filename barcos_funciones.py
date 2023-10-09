@@ -5,7 +5,7 @@ import barcos_variables as var
 # INICIALIZAR TABLERO JUGADOR
 def init_tablero_mio(fill):
     var.tablero_mio = np.full((10,10),' ')
-    print(var.tablero_mio)
+    print('Bienvenido al juego de hundir la flota')
 
 # INICIALIZAR TABLERO MAQUINA (OCULTO PARA EL JUGADOR)
 def init_tablero_maquina(fill):
@@ -14,7 +14,6 @@ def init_tablero_maquina(fill):
 # INICIALIZAR TABLERO VISIBLE (BASADO EN TABLERO MAQUINA)
 def init_tablero_visible(fill):
     var.tablero_visible = np.full((10,10),'?')
-    print(var.tablero_visible)
 
 # GENERAR BARCO SIMPLE --> FUNCIONA PARA EL JUGADOR (MANUAL) Y PARA LA MAQUINA (ALEATORIO)
 def generar_barco_simple (tablero,eslora,tablero_auto=True):
@@ -122,19 +121,17 @@ def generar_todos_los_barcos_maquina():
         generar_barco_simple(var.tablero_maquina,4,tablero_auto=True)
 
     for _ in range(cantidad_barcos_3_eslora):
-        generar_barco_simple(var.tablero_maquina,3,tablero_auto=False)
+        generar_barco_simple(var.tablero_maquina,3,tablero_auto=True)
 
     for _ in range(cantidad_barcos_2_eslora):
-        generar_barco_simple(var.tablero_maquina,2,tablero_auto=False)
+        generar_barco_simple(var.tablero_maquina,2,tablero_auto=True)
 
     for _ in range(cantidad_barcos_1_eslora):
-        generar_barco_simple(var.tablero_maquina,1,tablero_auto=False)
-
-    print(var.tablero_maquina)
+        generar_barco_simple(var.tablero_maquina,1,tablero_auto=True)
 
 # FUNCION PARA DISPARAR. FUNCIONA PARA EL JUGADOR Y PARA LA MAQUINA
 def disparar (tablero_mio,tablero_maquina,tablero_visible):
-
+    print('Comienza el juego. Primero juega el humano. Si aciertas te tocará otra vez. Si fallas jugará la máquina')
     turno_jugador = True
     contador_turnos_jugador = 0
     contador_turnos_maquina = 0
